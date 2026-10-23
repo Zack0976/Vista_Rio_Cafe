@@ -99,7 +99,6 @@
         <div class="mb-8 animate-fade-up">
           <p class="text-terracota font-medium tracking-widest uppercase text-xs mb-2">Cardápio da Casa · Manaus, AM</p>
           <h2 class="font-serif text-4xl text-marrom mb-3">Escolha seu começo.</h2>
-          <p class="text-marrom/70">Selecione sua unidade abaixo para ver a disponibilidade.</p>
         </div>
         <div class="inline-flex bg-white rounded-full shadow-sm p-1 mb-8 border border-areia/50 relative">
           <button data-unit="ponta-negra" class="unit-btn px-6 py-2 rounded-full font-medium text-sm text-marrom transition-all relative z-10">Ponta Negra</button>
@@ -191,7 +190,6 @@
     </section>
   </main>
 
-  <!-- CARRINHO -->
   <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[420px] bg-white shadow-2xl translate-x-full transition-transform duration-400 z-50 flex flex-col">
     <div class="flex justify-between items-center p-5 border-b border-areia bg-bege/20">
       <h3 class="font-serif text-xl text-marrom flex items-center gap-2">Seu Pedido</h3>
@@ -218,21 +216,18 @@
 
   <div id="cart-overlay" class="fixed inset-0 bg-black/40 hidden z-40 backdrop-blur-sm"></div>
 
-  <!-- MODAL PRODUTO -->
   <div id="product-modal" class="fixed inset-0 bg-black/60 hidden z-50 items-center justify-center p-4 backdrop-blur-sm">
     <div class="bg-white rounded-3xl max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl">
       <div id="modal-content" class="p-6 sm:p-8"></div>
     </div>
   </div>
 
-  <!-- MODAL CHECKOUT -->
   <div id="checkout-modal" class="fixed inset-0 bg-black/60 hidden z-50 items-center justify-center p-4 backdrop-blur-sm">
     <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl">
       <div class="flex justify-between items-center mb-6">
         <h3 class="font-serif text-2xl text-marrom">Finalizar Pedido</h3>
         <button id="close-checkout" class="p-2 rounded-full hover:bg-bege/50 text-marrom"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
       </div>
-      
       <form id="checkout-form" class="space-y-4">
         <div>
           <label class="text-sm font-medium text-marrom">Nome completo</label>
@@ -255,7 +250,6 @@
             <input name="number" placeholder="Número" class="border border-areia rounded-xl px-4 py-2.5 focus:outline-none focus:border-terracota bg-creme/30" />
             <input name="district" placeholder="Bairro" class="border border-areia rounded-xl px-4 py-2.5 focus:outline-none focus:border-terracota bg-creme/30" />
           </div>
-          <input name="reference" placeholder="Ponto de referência" class="w-full border border-areia rounded-xl px-4 py-2.5 focus:outline-none focus:border-terracota bg-creme/30" />
         </div>
         <div>
           <label class="text-sm font-medium text-marrom">Forma de pagamento</label>
@@ -267,9 +261,7 @@
             <option>Dinheiro</option>
           </select>
         </div>
-        <button type="submit" class="w-full bg-[#25D366] hover:bg-[#1ebe57] text-white py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2 shadow-md mt-4">
-          Enviar Pedido pelo WhatsApp
-        </button>
+        <button type="submit" class="w-full bg-[#25D366] hover:bg-[#1ebe57] text-white py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2 shadow-md mt-4">Enviar Pedido pelo WhatsApp</button>
       </form>
     </div>
   </div>

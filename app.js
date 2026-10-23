@@ -1,8 +1,4 @@
-// ==========================================
-// VISTA RIO CAFÉ - APP DEFINITIVO (GITHUB READY)
-// ==========================================
-
-// 1. DADOS DO CARDÁPIO (Integrados para não depender de fetch/JSON)
+// 1. DADOS DO CARDÁPIO (Integrados)
 const DEFAULT_DATA = {
   units: {
     "ponta-negra": { name: "Ponta Negra", whatsapp: "5592984540428", coordinates: { lat: -3.1019, lng: -60.0933 } },
@@ -86,9 +82,7 @@ let currentSearch = '';
 
 const fmt = (v) => `R$ ${Number(v).toFixed(2).replace('.', ',')}`;
 
-// ==========================================
 // 2. CLASSE DO CARRINHO
-// ==========================================
 class Cart {
   constructor() {
     this.items = JSON.parse(localStorage.getItem('vrc_cart') || '[]');
@@ -114,9 +108,7 @@ class Cart {
 }
 const cart = new Cart();
 
-// ==========================================
 // 3. NAVEGAÇÃO
-// ==========================================
 window.switchTab = function(tabId) {
   document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
   const target = document.getElementById(`tab-${tabId}`);
@@ -139,9 +131,7 @@ window.toggleMobileMenu = function(open) {
   else { menu.classList.add('translate-x-full'); overlay.classList.add('hidden'); }
 };
 
-// ==========================================
 // 4. INICIALIZAÇÃO
-// ==========================================
 async function init() {
   document.querySelectorAll('.tab-btn').forEach(btn => btn.addEventListener('click', () => switchTab(btn.dataset.tab)));
   document.getElementById('mobile-menu-btn')?.addEventListener('click', () => toggleMobileMenu(true));
@@ -157,7 +147,6 @@ async function init() {
   setupCartEvents();
   setupCheckoutEvents();
 
-  // Tenta pegar dados do Admin (LocalStorage), senão usa o padrão integrado
   const adminData = localStorage.getItem('vrc_admin_data');
   if (adminData) {
     try { DATA = JSON.parse(adminData); } catch(e) { DATA = DEFAULT_DATA; }
@@ -172,9 +161,7 @@ async function init() {
   switchTab(window.location.hash.replace('#', '') || 'inicio');
 }
 
-// ==========================================
 // 5. RENDERIZAÇÃO
-// ==========================================
 function renderCategories() {
   const container = document.getElementById('categories');
   if (!container || !DATA) return;
@@ -263,9 +250,7 @@ function renderFeatured() {
   `).join('');
 }
 
-// ==========================================
-// 6. MODAL DE PRODUTO
-// ==========================================
+// 6. MODAL
 window.openProductModal = function (productId) {
   if (!DATA) return;
   const product = DATA.products.find(p => p.id === productId);
@@ -313,9 +298,7 @@ window.openProductModal = function (productId) {
   };
 };
 
-// ==========================================
 // 7. CARRINHO E FRETE
-// ==========================================
 function setupCartEvents() {
   const drawer = document.getElementById('cart-drawer');
   const overlay = document.getElementById('cart-overlay');
@@ -399,9 +382,7 @@ function renderCart() {
   document.getElementById('total').textContent = fmt(cart.subtotal() + (cart.shipping || 0));
 }
 
-// ==========================================
-// 8. CHECKOUT E WHATSAPP
-// ==========================================
+// 8. CHECKOUT
 function setupCheckoutEvents() {
   const checkoutModal = document.getElementById('checkout-modal');
 
